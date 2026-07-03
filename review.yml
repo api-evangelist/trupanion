@@ -1,0 +1,84 @@
+aid: trupanion
+name: Trupanion
+review:
+  question: Does Trupanion expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Trupanion does not publish a public API
+    reference at all - its Partner APIs (Quotes, Enrollments, Offers) and the Vet
+    Portal / VetDirectPay integration live behind a partner-gated Azure API
+    Management developer portal. What is publicly described is request/response
+    HTTP consumed by approved partners and veterinary practice management systems.
+    No server-push transport (WebSocket or SSE) is documented on Trupanion's own
+    API, so there is nothing event-driven to model.
+findings:
+  summary: |
+    Trupanion does not publish a documented public WebSocket API. Trupanion is a
+    pet medical insurance provider whose developer surface is a partner-gated
+    portal at api-documentation.trupanion.com, which redirects to an Azure API
+    Management developer portal (sandbox-trupanionapi.developer.azure-api.net).
+    The portal names Partner APIs for Quotes, Enrollments, and Offers, and a
+    separate Vet Portal / VetDirectPay software integration used by practice
+    management systems (ezyVet, IDEXX, DaySmart Vet). Access requires Partner
+    Program approval and issued OAuth client credentials (client ID and client
+    secret) plus a subscription key; the operation-level endpoint reference is not
+    publicly visible. Everything publicly described is request/response HTTP. No
+    realtime, bidirectional, or streaming WebSocket (ws:// or wss://) endpoint is
+    documented anywhere in Trupanion's public materials as of the review date.
+  accessModel: |
+    Gated / partner-only. There is no open, self-serve API reference. Partners
+    and veterinary hospitals are onboarded through Trupanion's Partner Program
+    and the Hospital Software onboarding process; practice management vendors
+    configure the integration with a downloaded client ID and client secret and
+    email the credential file to TruExLaunch@Trupanion.com. Because of this, the
+    APIs recorded in apis.yml carry endpointsModeled: true - they are modeled from
+    Trupanion's public partner and portal materials, not fabricated from a
+    documented endpoint list.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: partner-gated
+      note: Partner APIs (Quotes, Enrollments, Offers) hosted on Azure API Management. Base gateway and operation reference are only visible after partner sign-in.
+    - protocol: OAuth Client Credentials
+      scheme: https
+      documented: partner-gated
+      note: Vet Portal / VetDirectPay integrations authenticate with an issued client ID and client secret plus a subscription key.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Trupanion's public developer materials as of the review date.
+  endpointsConfirmedRest: []
+  endpointsModeled:
+    - Trupanion Quotes API (generate/retrieve pet insurance quotes)
+    - Trupanion Enrollments API (convert a quote into an active policy)
+    - Trupanion Offers API (retrieve partner offers and promotional programs)
+    - Trupanion Vet Portal / VetDirectPay (submit invoice, direct-pay the hospital at checkout)
+sources:
+  - url: https://api-documentation.trupanion.com/
+    type: Documentation
+    note: Partner developer portal home; 301-redirects to the Azure API Management portal. Names Partner APIs for Quotes, Enrollments, and Offers.
+  - url: https://sandbox-trupanionapi.developer.azure-api.net/getting-started
+    type: GettingStarted
+    note: Getting Started directs prospective partners to the Partner Program and Contact Us to request API access. No public endpoints or auth details.
+  - url: https://docs.ezyvet.com/en/see-all-integrations/insurance/trupanion-insurance-integrations/configure-the-integration-for-trupanion-vet-portal
+    type: IntegrationGuide
+    note: ezyVet guide showing the Trupanion API partner integration configured with a client ID and client secret; credential file emailed to TruExLaunch@Trupanion.com.
+  - url: https://vet.trupanion.com/
+    type: Documentation
+    note: Trupanion for Vets - VetDirectPay direct hospital payment at checkout via integrated practice management software.
+  - url: https://www.trupanion.com/about/partner-with-trupanion
+    type: PartnerProgram
+    note: Partner Program overview; API access is provisioned to approved partners.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and Trupanion publishes no open API
+    reference at all - the Partner APIs and the Vet Portal / VetDirectPay
+    integration are request/response HTTP behind partner approval and issued
+    credentials. No AsyncAPI document was created because there is no server-push
+    transport on Trupanion's own API to model, and no OpenAPI document was created
+    because the endpoint reference is gated and would have to be fabricated.

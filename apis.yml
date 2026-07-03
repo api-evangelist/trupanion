@@ -1,0 +1,121 @@
+aid: trupanion
+url: https://raw.githubusercontent.com/api-evangelist/trupanion/refs/heads/main/apis.yml
+name: Trupanion
+kind: company
+description: Trupanion is a pet medical insurance provider for cats and dogs, best
+  known for its patented software that pays participating veterinary hospitals
+  directly at checkout (VetDirectPay) rather than reimbursing pet owners after the
+  fact. Trupanion operates a partner developer portal (Azure API Management) that
+  exposes Partner APIs for Quotes, Enrollments, and Offers, plus a Vet Portal /
+  VetDirectPay integration used by veterinary practice management systems such as
+  ezyVet, IDEXX, and DaySmart Vet. API access is gated - partners must be approved
+  through Trupanion's Partner Program and are issued OAuth client credentials
+  (client ID and client secret) plus a subscription key; the endpoint reference is
+  not publicly published. The APIs listed here are modeled from Trupanion's public
+  partner and portal materials, not from an openly documented API reference.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Pet Insurance
+- Insurance
+- Veterinary
+- InsurTech
+- Direct Pay
+- Partner API
+created: '2026-07-03'
+modified: '2026-07-03'
+specificationVersion: '0.19'
+apis:
+- aid: trupanion:trupanion-quotes-api
+  name: Trupanion Quotes API
+  tags:
+  - Quotes
+  - Pricing
+  - Insurance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api-documentation.trupanion.com/
+  properties:
+  - url: https://api-documentation.trupanion.com/
+    type: Documentation
+  - url: https://sandbox-trupanionapi.developer.azure-api.net/getting-started
+    type: GettingStarted
+  endpointsModeled: true
+  description: Partner API for generating and retrieving Trupanion pet insurance
+    quotes (species, breed, age, location, and coverage inputs) so partners can
+    surface a monthly premium in their own enrollment flow. Named as a partner
+    product on Trupanion's sandbox developer portal; the operation-level endpoint
+    reference is gated behind partner sign-in and is modeled here, not fabricated.
+- aid: trupanion:trupanion-enrollments-api
+  name: Trupanion Enrollments API
+  tags:
+  - Enrollments
+  - Policies
+  - Insurance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api-documentation.trupanion.com/
+  properties:
+  - url: https://api-documentation.trupanion.com/
+    type: Documentation
+  - url: https://sandbox-trupanionapi.developer.azure-api.net/getting-started
+    type: GettingStarted
+  endpointsModeled: true
+  description: Partner API for converting a quote into an active Trupanion policy -
+    submitting pet, owner, and payment details to enroll a member and bind
+    coverage. Named as a partner product on Trupanion's sandbox developer portal;
+    the endpoint reference is partner-gated and is modeled here rather than sourced
+    from a public API reference.
+- aid: trupanion:trupanion-offers-api
+  name: Trupanion Offers API
+  tags:
+  - Offers
+  - Promotions
+  - Partnerships
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://api-documentation.trupanion.com/
+  properties:
+  - url: https://api-documentation.trupanion.com/
+    type: Documentation
+  - url: https://sandbox-trupanionapi.developer.azure-api.net/getting-started
+    type: GettingStarted
+  endpointsModeled: true
+  description: Partner API for retrieving Trupanion offers and promotional coverage
+    programs (for example, breeder, shelter, and retail partner offers) that a
+    partner can present to a pet owner. Named as a partner product on Trupanion's
+    sandbox developer portal; the endpoint reference is gated and modeled here.
+- aid: trupanion:trupanion-vet-portal-directpay-api
+  name: Trupanion Vet Portal / VetDirectPay Integration
+  tags:
+  - Direct Pay
+  - Claims
+  - Veterinary
+  - Practice Management
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://vet.trupanion.com/
+  properties:
+  - url: https://vet.trupanion.com/
+    type: Documentation
+  - url: https://docs.ezyvet.com/en/see-all-integrations/insurance/trupanion-insurance-integrations/configure-the-integration-for-trupanion-vet-portal
+    type: IntegrationGuide
+  endpointsModeled: true
+  description: Software integration behind Trupanion's VetDirectPay - the patented
+    ability to submit a treatment invoice and pay the veterinary hospital directly
+    at checkout, often before the pet owner leaves the exam room. Consumed by
+    veterinary practice management systems (ezyVet, IDEXX, DaySmart Vet) that
+    configure a Trupanion API partner integration using an issued client ID and
+    client secret. Not a publicly documented REST reference; endpoints are modeled
+    from partner integration guides.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/trupanion
+- type: Website
+  url: https://www.trupanion.com/
+- type: Documentation
+  url: https://api-documentation.trupanion.com/
+- type: GettingStarted
+  url: https://sandbox-trupanionapi.developer.azure-api.net/getting-started
+- type: PartnerProgram
+  url: https://www.trupanion.com/about/partner-with-trupanion
+- type: SignUp
+  url: https://sandbox-trupanionapi.developer.azure-api.net/signin
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
