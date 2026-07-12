@@ -104,6 +104,8 @@ apis:
     client secret. Not a publicly documented REST reference; endpoints are modeled
     from partner integration guides.
 common:
+- type: DomainSecurity
+  url: security/trupanion-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/trupanion
 - type: Website
