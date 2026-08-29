@@ -13,6 +13,17 @@ description: Trupanion is a pet medical insurance provider for cats and dogs, be
   (client ID and client secret) plus a subscription key; the endpoint reference is
   not publicly published. The APIs listed here are modeled from Trupanion's public
   partner and portal materials, not from an openly documented API reference.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: approval
