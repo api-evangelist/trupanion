@@ -40,8 +40,8 @@ tags:
 - Pet Insurance
 - Insurance
 - Veterinary
-- Insurtech
-- DirectPay
+- InsurTech
+- Direct Pay
 - Partner API
 tags_raw:
 - Pet Insurance
@@ -113,7 +113,7 @@ apis:
 - aid: trupanion:trupanion-vet-portal-directpay-api
   name: Trupanion Vet Portal / VetDirectPay Integration
   tags:
-  - DirectPay
+  - Direct Pay
   - Claims
   - Veterinary
   - Practice Management
