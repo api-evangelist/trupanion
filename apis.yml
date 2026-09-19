@@ -76,6 +76,10 @@ apis:
 - aid: trupanion:trupanion-enrollments-api
   name: Trupanion Enrollments API
   tags:
+  - Enrollment
+  - Policies
+  - Insurance
+  tags_raw:
   - Enrollments
   - Policies
   - Insurance
